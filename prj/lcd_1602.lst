@@ -1,0 +1,135 @@
+C51 COMPILER V7.50   LCD_1602                                                              04/23/2018 22:20:21 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE LCD_1602
+OBJECT MODULE PLACED IN .\lcd_1602.obj
+COMPILER INVOKED BY: d:\Keil\C51\BIN\C51.EXE ..\code\lcd_1602.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\lcd_1602.lst) OB
+                    -JECT(.\lcd_1602.obj)
+
+line level    source
+
+   1          #include "include.h"
+   2          
+   3          /******************************************
+   4          因为引脚的定义DB0..DB7是从P1.7...P1.0排列的 
+   5          所以顺序需要调换一下
+   6          ******************************************/
+   7          INT8U swapbit(INT8U udata)
+   8          {
+   9   1        INT8U ii,tmp=0;
+  10   1        for(ii=0;ii<8;ii++)
+  11   1        {
+  12   2          tmp<<=1;
+  13   2          if(udata&0x01)
+  14   2          {
+  15   3            tmp|=0x01;
+  16   3          }
+  17   2          udata>>=1;
+  18   2        }
+  19   1        return tmp;
+  20   1      }
+  21          
+  22          //5ms延时
+  23          void Delay5Ms(void)
+  24          {
+  25   1       unsigned int TempCyc = 3000;
+  26   1       //unsigned int TempCyc = 3200;
+  27   1       while(TempCyc--);
+  28   1      }
+  29          
+  30          //写数据
+  31          void WriteDataLCM(unsigned char WDLCM)
+  32          {
+  33   1       //ReadStatusLCM(); //检测忙
+  34   1       Delay5Ms();
+  35   1       LCM_Data =swapbit(WDLCM);
+  36   1       LCM_RS = 1;
+  37   1       LCM_RW = 0;
+  38   1       LCM_E = 0; //若晶振速度太高可以在这后加小的延时
+  39   1       LCM_E = 0; //延时
+  40   1       Delay5Ms();
+  41   1       LCM_E = 1;
+  42   1      }
+  43          
+  44          //写指令
+  45          void WriteCommandLCM(unsigned char WCLCM,BuysC) //BuysC为0时忽略忙检测
+  46          {
+  47   1       //if (BuysC) ReadStatusLCM(); //根据需要检测忙
+  48   1       Delay5Ms();
+  49   1       LCM_Data =swapbit(WCLCM);
+  50   1       LCM_RS = 0;
+  51   1       LCM_RW = 0; 
+  52   1       LCM_E = 0;
+  53   1       LCM_E = 0;
+  54   1       LCM_E = 1; 
+C51 COMPILER V7.50   LCD_1602                                                              04/23/2018 22:20:21 PAGE 2   
+
+  55   1      }
+  56          
+  57          
+  58          void init_lcd(void) //LCM初始化
+  59          {
+  60   1       LCM_Data = 0;
+  61   1       WriteCommandLCM(0x38,0); //三次显示模式设置，不检测忙信号
+  62   1       Delay5Ms(); 
+  63   1       WriteCommandLCM(0x38,0);
+  64   1       Delay5Ms(); 
+  65   1       WriteCommandLCM(0x38,0);
+  66   1       Delay5Ms(); 
+  67   1      
+  68   1       WriteCommandLCM(0x38,1); //显示模式设置,开始要求每次检测忙信号
+  69   1       WriteCommandLCM(0x08,1); //关闭显示
+  70   1       WriteCommandLCM(0x01,1); //显示清屏
+  71   1       WriteCommandLCM(0x06,1); // 显示光标移动设置
+  72   1       WriteCommandLCM(0x0C,1); // 显示开及光标设置
+  73   1      }
+  74          
+  75          //按指定位置显示一个字符
+  76          void DisplayOneChar(unsigned char Y, unsigned char X, unsigned char DData)
+  77          {
+  78   1       Y &= 0x1;
+  79   1       X &= 0xF; //限制X不能大于15，Y不能大于1
+  80   1       if (Y) X |= 0x40; //当要显示第二行时地址码+0x40;
+  81   1       X |= 0x80; // 算出指令码
+  82   1       WriteCommandLCM(X, 0); //这里不检测忙信号，发送地址码
+  83   1       WriteDataLCM(DData);
+  84   1      }
+  85          
+  86          //清屏
+  87          void ClearScreen(void)
+  88          {
+  89   1        unsigned char ii,jj;
+  90   1        for(ii=0;ii<2;ii++)
+  91   1        { 
+  92   2          for(jj=0;jj<16;jj++)
+  93   2          {
+  94   3            DisplayOneChar(ii,jj,' ');
+  95   3          }
+  96   2        }
+  97   1      }
+  98          
+  99          /********************************************************
+ 100          脉冲发送过程中显示的内容
+ 101          ********************************************************/
+ 102          void show_pulse(void)
+ 103          {
+ 104   1        ClearScreen();
+ 105   1        DisplayListChar(0,1,"ID:");
+ 106   1        DisplayListChar(1,1,"INC:0000-0000");
+ 107   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    265    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----       3
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V7.50   LCD_1602                                                              04/23/2018 22:20:21 PAGE 3   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

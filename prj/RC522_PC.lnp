@@ -1,0 +1,10 @@
+".\ctrl.obj",
+".\flash.obj",
+".\key.obj",
+".\lcd12864.obj",
+".\main.obj",
+".\rc522.obj",
+".\timer.obj",
+".\uart.obj" 
+TO "RC522_PC" 
+RAMSIZE(256) 

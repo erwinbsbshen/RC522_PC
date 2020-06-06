@@ -1,0 +1,70 @@
+C51 COMPILER V7.50   TIMER                                                                 06/06/2020 14:20:47 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN .\timer.obj
+COMPILER INVOKED BY: D:\p\keil2\C51\BIN\C51.EXE ..\code\timer.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\timer.lst) OBJEC
+                    -T(.\timer.obj)
+
+line level    source
+
+   1          #include "include.h"
+   2          
+   3          INT16U UartWaitTime = 0, RequestCardTime = 0, LedTime = 0;
+   4          
+   5          INT8U TimerTh0, TimerTl0;
+   6          
+   7          //TIMER1 initialize - prescale:8
+   8          // desired value: 20mSec
+   9          // actual value: 19.999mSec (0.0%)
+  10          void init_timer(void)  //20ms
+  11          {
+  12   1              TMOD = 0x21;
+  13   1      
+  14   1              TH0 = 0x69;
+  15   1              TL0 = 0xFA;
+  16   1              ET0 = 1;
+  17   1              TR0 = 1;
+  18   1      
+  19   1              TH1 = 256 - FOSC / 12 / 32 / BAUD;
+  20   1              TL1 = 256 - FOSC / 12 / 32 / BAUD;
+  21   1              TR1 = 1;
+  22   1      }
+  23          
+  24          void  time0_routine(void) interrupt 1
+  25          {
+  26   1        //TIMER1 has overflowed
+  27   1              //TMOD = 0x01;
+  28   1              TH0 = 0x69;
+  29   1              TL0 = 0xFA;
+  30   1      
+  31   1              RequestCardTime ++;
+  32   1              LedTime ++;
+  33   1              if( KeyTime )
+  34   1              {
+  35   2                      KeyTime --;
+  36   2              }
+  37   1      
+  38   1              if( ( ( UartWaitTime ++ ) >= TIME10MS ) && ( UartStart == TRUE ) )
+  39   1              {
+  40   2                      uart_over();
+  41   2              }
+  42   1              
+  43   1              
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    151    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =      8    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V7.50   TIMER                                                                 06/06/2020 14:20:47 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

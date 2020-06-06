@@ -1,0 +1,139 @@
+C51 COMPILER V7.50   FLASH                                                                 06/06/2020 14:20:46 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE FLASH
+OBJECT MODULE PLACED IN .\flash.obj
+COMPILER INVOKED BY: D:\p\keil2\C51\BIN\C51.EXE ..\code\flash.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\flash.lst) OBJEC
+                    -T(.\flash.obj)
+
+line level    source
+
+   1          #include  "include.h"
+   2          
+   3          /********************************************************
+   4          读单片机EEPROM
+   5          ********************************************************/
+   6          /*
+   7          INT8U read_eeprom(INT16U addr)
+   8          {
+   9                  INT8U val;
+  10                  IAP_ADDRH=(INT8U)(addr>>8);
+  11                  IAP_ADDRL=(INT8U)(addr);  
+  12                  // 设置等待时间,30M以下0,24M以下1,20M以下2,12M以下3,6M以下4,3M以下5,2M以下6,1M以下7.
+  13                  IAP_CONTR=0x82;    
+  14                  // 0 0 : Standby 待机模式,无ISP/IAP操作
+  15                  // 0 1 : 对 EEPROM 进行字节读
+  16                  // 1 0 : 对 EEPROM 进行字节编程
+  17                  // 1 1 : 对 EEPROM进行扇区擦除
+  18                  IAP_CMD=1;   
+  19                  IAP_TRIG=0x5a;
+  20                  IAP_TRIG=0xa5;
+  21                  nop();
+  22                  val=IAP_DATA;
+  23                  IAP_CONTR=0;
+  24                  IAP_CMD=0;
+  25                  IAP_TRIG=0;
+  26                  IAP_ADDRH=0x80;
+  27                  IAP_ADDRL=0x00;   
+  28                  return val;
+  29          }*/
+  30          /*
+  31          void read_eeproms( INT16U StartAddr, INT8U * Buf, INT8U Len )
+  32          {
+  33                  while( Len -- )
+  34                  {
+  35                          *Buf++ = read_eeprom( StartAddr++ );    
+  36                  }
+  37          }
+  38          */
+  39          
+  40          /********************************************************
+  41          单片机EEPROM扇区擦除
+  42          ********************************************************/
+  43          /*
+  44          void erase_eeprom(INT16U first_addr)
+  45          {
+  46                  IAP_ADDRH=(INT8U)(first_addr>>8);
+  47                  IAP_ADDRL=(INT8U)(first_addr);
+  48                  //设置等待时间,30M以下0,24M以下1,20M以下2,12M以下3,6M以下4,3M以下5,2M以下6,1M以下7.
+  49                  IAP_CONTR=0x82;  
+  50                  // 0 0 : Standby 待机模式,无ISP/IAP操作
+  51                  // 0 1 : 对 EEPROM 进行字节读
+  52                  // 1 0 : 对 EEPROM 进行字节编程
+  53                  // 1 1 : 对 EEPROM进行扇区擦除
+  54                  IAP_CMD=3; 
+C51 COMPILER V7.50   FLASH                                                                 06/06/2020 14:20:46 PAGE 2   
+
+  55                  IAP_TRIG=0x5a;
+  56                  IAP_TRIG=0xa5;
+  57                  nop();
+  58                  IAP_CONTR=0;
+  59                  IAP_CMD=0;
+  60                  IAP_TRIG=0;
+  61                  IAP_ADDRH=0x80;
+  62                  IAP_ADDRL=0x00;   
+  63          }
+  64          
+  65          */
+  66          /********************************************************
+  67          写单片机EEPROM
+  68          ********************************************************/
+  69          /*
+  70          void program_eeprom(INT16U addr,INT8U val)
+  71          {
+  72                  //uint data first_addr;
+  73                  //first_addr=addr&0xe000;
+  74                  //erase_eeprom(first_addr);
+  75                  IAP_DATA=val;
+  76                  IAP_ADDRH=(INT8U)(addr>>8);
+  77                  IAP_ADDRL=(INT8U)(addr);
+  78                  //设置等待时间,30M以下0,24M以下1,20M以下2,12M以下3,6M以下4,3M以下5,2M以下6,1M以下7.
+  79                  // 1 0 0 0 0 0 D1 D2
+  80                  IAP_CONTR=0x82;
+  81                  // 0 0 : Standby 待机模式,无ISP/IAP操作
+  82                  // 0 1 : 对 EEPROM 进行字节读
+  83                  // 1 0 : 对 EEPROM 进行字节编程
+  84                  // 1 1 : 对 EEPROM 进行扇区擦除
+  85                  IAP_CMD=2;
+  86                  IAP_TRIG=0x5a;
+  87                  IAP_TRIG=0xa5;
+  88                  nop();
+  89                  IAP_CONTR=0;
+  90                  IAP_CMD=0;
+  91                  IAP_TRIG=0;
+  92                  IAP_ADDRH=0x80;
+  93                  IAP_ADDRL=0x00;
+  94          }
+  95          */
+  96          /*
+  97          void program_eeproms( INT16U StartAddr, INT8U * Buf, INT8U Len )
+  98          {
+  99                  while( Len -- )
+ 100                  {
+ 101                          program_eeprom( StartAddr++, *Buf++ );
+ 102                          delay_ms(2);    
+ 103                  }
+ 104          }
+ 105          */
+ 106          /*
+ 107          void init_flash(void)
+ 108          {
+ 109          
+ 110          }
+ 111          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V7.50   FLASH                                                                 06/06/2020 14:20:46 PAGE 3   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

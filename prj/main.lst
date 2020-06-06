@@ -1,0 +1,144 @@
+C51 COMPILER V7.50   MAIN                                                                  06/06/2020 14:20:46 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\main.obj
+COMPILER INVOKED BY: D:\p\keil2\C51\BIN\C51.EXE ..\code\main.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\main.lst) OBJECT(
+                    -.\main.obj)
+
+line level    source
+
+   1          #include "include.h"
+   2          
+   3          
+   4          void delay_ms( INT16U tms )
+   5          {
+   6   1          INT16U i;
+   7   1      
+   8   1          while( tms-- )
+   9   1          {
+  10   2              for( i = 0; i < 300; i ++ )
+  11   2              {
+  12   3                  nop();
+  13   3                  nop();
+  14   3                  nop();
+  15   3                  nop();
+  16   3                  nop();
+  17   3                  nop();
+  18   3              }
+  19   2          }
+  20   1      }
+  21          
+  22          void init_led( void )
+  23          {
+  24   1          P1 = 0x00;
+  25   1          delay_ms(200);
+  26   1          P1 = 0Xff;
+  27   1      }
+  28          
+  29          void init_port( void )
+  30          {
+  31   1      //    P0M1 = 0x00;
+  32   1      //    P0M0 = 0xff;
+  33   1      
+  34   1          P3M1 &= ~0x10;
+  35   1          P3M0 |= 0x10;
+  36   1          //
+  37   1          //  P1M1=0x00;
+  38   1          //  P1M0=0x00;
+  39   1          //
+  40   1          //  P2M1=0x00;
+  41   1          //  P2M0=0xff;
+  42   1          //
+  43   1          //  P30=1;
+  44   1          //  P3M1=0x41;
+  45   1          //  P3M0=0xa2;
+  46   1          //
+  47   1          //  P4M1=0x02;
+  48   1          //  P4M0=0x00;
+  49   1          BEEP_OFF;
+  50   1          LED_OFF;
+  51   1      }
+  52          
+  53          void init_par( void )
+  54          {
+C51 COMPILER V7.50   MAIN                                                                  06/06/2020 14:20:46 PAGE 2   
+
+  55   1          BEEP_OFF;
+  56   1          LED_OFF;
+  57   1      }
+  58          
+  59          void init_wdt( void )    //2.7S
+  60          {
+  61   1          //  WDT_CONTR = 0xC1;
+  62   1          //  WDT_CONTR = 0x3E;
+  63   1      }
+  64          
+  65          void feed_wdt( void )
+  66          {
+  67   1          //  WDT_CONTR = 0x3E;
+  68   1      }
+  69          
+  70          void init_all(void)
+  71          {
+  72   1          EA = 0;
+  73   1      
+  74   1          init_timer();
+  75   1          init_uart();
+  76   1          init_port();
+  77   1          init_rc522();
+  78   1          init_par();
+  79   1          init_wdt();
+  80   1          init_led();
+  81   1      
+  82   1          EA = 1;
+  83   1      }
+  84          
+  85          void main(void)
+  86          {
+  87   1          if((PCON&0x10)==0) //如果POF位=0
+  88   1          {
+  89   2             PCON=PCON|0x10;  //将POF位置1
+  90   2             IAP_CONTR=0x60;  //软复位,从ISP监控区启动
+  91   2          }
+  92   1          else
+  93   1          {
+  94   2             PCON=PCON&0xef;  //将POF位清零
+  95   2          }
+  96   1      
+  97   1          lcdInitinal();
+  98   1          lcdMsg("浙中医药",2,2);
+  99   1          lcdMsg("www.baidu.com",4,1);
+ 100   1          delay_ms(2000);
+ 101   1          lcdInitinal();
+ 102   1          delay_ms(2);
+ 103   1          lcdMsg("余额：----",4,0);
+ 104   1          lcdMsg("卡号：----",2,0);
+ 105   1          lcdMsg("消费：----",3,0);
+ 106   1          lcdMsg("状态：----",1,0);
+ 107   1      
+ 108   1          init_all();
+ 109   1      
+ 110   1      
+ 111   1          while(1)
+ 112   1          {
+ 113   2              feed_wdt();
+ 114   2              ctrl_process();
+ 115   2          }
+ 116   1      }
+C51 COMPILER V7.50   MAIN                                                                  06/06/2020 14:20:46 PAGE 3   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    237    ----
+   CONSTANT SIZE    =     67    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
