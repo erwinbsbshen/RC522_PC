@@ -97,7 +97,7 @@ void main(void)
     lcdInitinal();
     lcdMsg("浙江中医药大学",1,0);
 	lcdMsg("何真可",2,0);
-	lcdMsg("2017级医学信息工程1班",3,0);
+	lcdMsg("医学信息工程",3,0);
     lcdMsg("hankerking@qq.com",4,0);
     delay_ms(2000);
     lcdInitinal();
