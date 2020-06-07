@@ -96,7 +96,7 @@ void main(void)
 
     lcdInitinal();
     lcdMsg("’„÷–“Ω“©",2,2);
-    lcdMsg("www.baidu.com",4,1);
+    lcdMsg("www.163.com",4,1);
     delay_ms(2000);
     lcdInitinal();
     delay_ms(2);
