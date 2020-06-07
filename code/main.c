@@ -95,9 +95,9 @@ void main(void)
     }
 
     lcdInitinal();
-    lcdMsg("–§÷Ò”¢1",1,0);
+    lcdMsg("–§÷Ò”¢",1,0);
 	lcdMsg("«∂»Î ΩøŒ≥Ã",2,0);
-	lcdMsg("YYY",3,0);
+	lcdMsg("XXX",3,0);
     lcdMsg("www.zcmu.edu.cn",4,0);
     delay_ms(2000);
     lcdInitinal();
