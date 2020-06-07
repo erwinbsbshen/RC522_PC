@@ -95,7 +95,7 @@ void main(void)
     }
 
     lcdInitinal();
-    lcdMsg("肖竹英",1,0);
+    lcdMsg("苏海娜11",1,0);
 	lcdMsg("嵌入式课程",2,0);
 	lcdMsg("XXX",3,0);
     lcdMsg("www.zcmu.edu.cn",4,0);
