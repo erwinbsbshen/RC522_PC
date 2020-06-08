@@ -97,6 +97,7 @@ void main(void)
     lcdInitinal();
     lcdMsg("MHD",1,0);
 	lcdMsg("Ç¶ÈëÊ½¿Î³Ì",2,0);
+	lcdMsg("»¶Ó­Äú£¡",3,0);
     delay_ms(2000);
     lcdInitinal();
     delay_ms(2);
