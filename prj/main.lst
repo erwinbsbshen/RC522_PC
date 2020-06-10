@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   MAIN                                                                  06/06/2020 14:20:46 PAGE 1   
+C51 COMPILER V7.50   MAIN                                                                  06/10/2020 23:01:28 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\main.obj
-COMPILER INVOKED BY: D:\p\keil2\C51\BIN\C51.EXE ..\code\main.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\main.lst) OBJECT(
-                    -.\main.obj)
+COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\main.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\main.lst) OBJECT
+                    -(.\main.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52          
   53          void init_par( void )
   54          {
-C51 COMPILER V7.50   MAIN                                                                  06/06/2020 14:20:46 PAGE 2   
+C51 COMPILER V7.50   MAIN                                                                  06/10/2020 23:01:28 PAGE 2   
 
   55   1          BEEP_OFF;
   56   1          LED_OFF;
@@ -107,32 +107,34 @@ line level    source
   95   2          }
   96   1      
   97   1          lcdInitinal();
-  98   1          lcdMsg("ÕãÖÐÒ½Ò©",2,2);
-  99   1          lcdMsg("www.baidu.com",4,1);
- 100   1          delay_ms(2000);
- 101   1          lcdInitinal();
- 102   1          delay_ms(2);
- 103   1          lcdMsg("Óà¶î£º----",4,0);
- 104   1          lcdMsg("¿¨ºÅ£º----",2,0);
- 105   1          lcdMsg("Ïû·Ñ£º----",3,0);
- 106   1          lcdMsg("×´Ì¬£º----",1,0);
- 107   1      
- 108   1          init_all();
+  98   1          lcdMsg("123",1,0);
+  99   1              lcdMsg("Ç¶ÈëÊ½",2,0);
+ 100   1              lcdMsg("XXX",3,0);
+ 101   1          lcdMsg("www.google.com",4,0);
+ 102   1          delay_ms(2000);
+ 103   1          lcdInitinal();
+ 104   1          delay_ms(2);
+ 105   1          lcdMsg("Óà¶î£º----",4,0);
+ 106   1          lcdMsg("¿¨ºÅ£º----",2,0);
+ 107   1          lcdMsg("Ïû·Ñ£º----",3,0);
+ 108   1          lcdMsg("×´Ì¬£º----",1,0);
  109   1      
- 110   1      
- 111   1          while(1)
- 112   1          {
- 113   2              feed_wdt();
- 114   2              ctrl_process();
- 115   2          }
- 116   1      }
-C51 COMPILER V7.50   MAIN                                                                  06/06/2020 14:20:46 PAGE 3   
+ 110   1          init_all();
+ 111   1      
+ 112   1      
+ 113   1          while(1)
+ 114   1          {
+ 115   2              feed_wdt();
+ 116   2              ctrl_process();
+C51 COMPILER V7.50   MAIN                                                                  06/10/2020 23:01:28 PAGE 3   
 
+ 117   2          }
+ 118   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    237    ----
-   CONSTANT SIZE    =     67    ----
+   CODE SIZE        =    268    ----
+   CONSTANT SIZE    =     74    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----

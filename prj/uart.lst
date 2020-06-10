@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   UART                                                                  06/06/2020 14:20:47 PAGE 1   
+C51 COMPILER V7.50   UART                                                                  06/10/2020 23:01:28 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE UART
 OBJECT MODULE PLACED IN .\uart.obj
-COMPILER INVOKED BY: D:\p\keil2\C51\BIN\C51.EXE ..\code\uart.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\uart.lst) OBJECT(
-                    -.\uart.obj)
+COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\uart.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\uart.lst) OBJECT
+                    -(.\uart.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   3                              UartBuf[ UartCount++ ] = ReByte;
   53   3                              if( UartCount == 2 )
   54   3                              {
-C51 COMPILER V7.50   UART                                                                  06/06/2020 14:20:47 PAGE 2   
+C51 COMPILER V7.50   UART                                                                  06/10/2020 23:01:28 PAGE 2   
 
   55   4                                      UartLen = UartBuf[0] + UartBuf[1] + 3;
   56   4                              }

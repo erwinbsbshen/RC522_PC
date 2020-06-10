@@ -36,7 +36,7 @@ Options 1,0,0  // Target 'Target 1'
  OrgReg ()
  TgStat=0
  OutDir (.\)
- OutName (GPS)
+ OutName (RC522_PC)
  GenApp=1
  GenLib=0
  GenHex=1

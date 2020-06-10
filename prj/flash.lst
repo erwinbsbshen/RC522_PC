@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   FLASH                                                                 06/06/2020 14:20:46 PAGE 1   
+C51 COMPILER V7.50   FLASH                                                                 06/10/2020 23:01:28 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE FLASH
 OBJECT MODULE PLACED IN .\flash.obj
-COMPILER INVOKED BY: D:\p\keil2\C51\BIN\C51.EXE ..\code\flash.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\flash.lst) OBJEC
-                    -T(.\flash.obj)
+COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\flash.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\flash.lst) OBJE
+                    -CT(.\flash.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52                  // 1 0 : 对 EEPROM 进行字节编程
   53                  // 1 1 : 对 EEPROM进行扇区擦除
   54                  IAP_CMD=3; 
-C51 COMPILER V7.50   FLASH                                                                 06/06/2020 14:20:46 PAGE 2   
+C51 COMPILER V7.50   FLASH                                                                 06/10/2020 23:01:28 PAGE 2   
 
   55                  IAP_TRIG=0x5a;
   56                  IAP_TRIG=0xa5;
@@ -126,7 +126,7 @@ line level    source
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =   ----    ----
    CONSTANT SIZE    =   ----    ----
-C51 COMPILER V7.50   FLASH                                                                 06/06/2020 14:20:46 PAGE 3   
+C51 COMPILER V7.50   FLASH                                                                 06/10/2020 23:01:28 PAGE 3   
 
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

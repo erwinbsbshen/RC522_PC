@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   KEY                                                                   06/06/2020 14:20:46 PAGE 1   
+C51 COMPILER V7.50   KEY                                                                   06/10/2020 23:01:28 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE KEY
 OBJECT MODULE PLACED IN .\key.obj
-COMPILER INVOKED BY: D:\p\keil2\C51\BIN\C51.EXE ..\code\key.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\key.lst) OBJECT(.\
-                    -key.obj)
+COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\key.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\key.lst) OBJECT(.
+                    -\key.obj)
 
 line level    source
 

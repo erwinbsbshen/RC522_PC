@@ -34,7 +34,7 @@ Options 1,0,0  // Target 'Target 1'
  EnvLib ()
  EnvReg ()
  OrgReg ()
- TgStat=0
+ TgStat=11
  OutDir (.\)
  OutName (RC522_PC)
  GenApp=1
