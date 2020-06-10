@@ -95,9 +95,9 @@ void main(void)
     }
 
     lcdInitinal();
-    lcdMsg("程欢",1,0);
-	lcdMsg("程欢",2,0);
-	lcdMsg("程欢",3,0);
+    lcdMsg("浙江中医药大学",1,0);
+	lcdMsg("加油",2,0);
+	lcdMsg("刘昊阳",3,0);
     lcdMsg("www.google.cn",4,0);
     delay_ms(2000);
     lcdInitinal();
