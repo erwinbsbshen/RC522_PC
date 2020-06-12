@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   LCD12864                                                              06/10/2020 23:01:28 PAGE 1   
+C51 COMPILER V7.50   LCD12864                                                              06/12/2020 10:11:06 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE LCD12864
 OBJECT MODULE PLACED IN .\lcd12864.obj
-COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\lcd12864.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\lcd12864.lst
-                    -) OBJECT(.\lcd12864.obj)
+COMPILER INVOKED BY: D:\keli\C51\BIN\C51.EXE ..\code\lcd12864.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\lcd12864.lst) OB
+                    -JECT(.\lcd12864.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   2          case 2:  i=0x90+row;break;
   53   2          case 3:  i=0x88+row;break;
   54   2          case 4:  i=0x98+row;break;
-C51 COMPILER V7.50   LCD12864                                                              06/10/2020 23:01:28 PAGE 2   
+C51 COMPILER V7.50   LCD12864                                                              06/12/2020 10:11:06 PAGE 2   
 
   55   2          default: i=0x80;break;
   56   2      

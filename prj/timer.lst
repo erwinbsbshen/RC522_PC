@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   TIMER                                                                 06/10/2020 23:01:28 PAGE 1   
+C51 COMPILER V7.50   TIMER                                                                 06/12/2020 10:11:06 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE TIMER
 OBJECT MODULE PLACED IN .\timer.obj
-COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\timer.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\timer.lst) OBJE
-                    -CT(.\timer.obj)
+COMPILER INVOKED BY: D:\keli\C51\BIN\C51.EXE ..\code\timer.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\timer.lst) OBJECT(.
+                    -\timer.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
-C51 COMPILER V7.50   TIMER                                                                 06/10/2020 23:01:28 PAGE 2   
+C51 COMPILER V7.50   TIMER                                                                 06/12/2020 10:11:06 PAGE 2   
 
 END OF MODULE INFORMATION.
 

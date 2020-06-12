@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 1   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE CTRL
 OBJECT MODULE PLACED IN .\ctrl.obj
-COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\ctrl.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\ctrl.lst) OBJECT
-                    -(.\ctrl.obj)
+COMPILER INVOKED BY: D:\keli\C51\BIN\C51.EXE ..\code\ctrl.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\ctrl.lst) OBJECT(.\c
+                    -trl.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52          
   53          void send_rebck( psUartData psUartDataRevSend )
   54          {
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 2   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 2   
 
   55   1              INT8U * pTmp;
   56   1              INT8U Len,Check;
@@ -126,7 +126,7 @@ line level    source
  112   1      }
  113          
  114          INT8U updata_key( psUartData psUartDataRevSend )
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 3   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 3   
 
  115          {
  116   1              INT8U CardKeyABuf[6];
@@ -190,7 +190,7 @@ line level    source
  172   2                      memset( &psUartDataRevSend->UartDataBuf[1], 0x00, 6 );
  173   2                      bWarn = 1;
  174   2                      return FALSE;
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 4   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 4   
 
  175   2              }
  176   1      
@@ -254,7 +254,7 @@ line level    source
  232   2                      bWarn = 1;
  233   2                      return FALSE;   
  234   2              }
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 5   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 5   
 
  235   1      
  236   1              memcpy( CardWriteBuf, &psUartDataRevSend->UartDataBuf[7], 16 );
@@ -318,7 +318,7 @@ line level    source
  292   1      
  293   1              memcpy( CardKeyABuf, &psUartDataRevSend->UartDataBuf[1], 6 );
  294   1      
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 6   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 6   
 
  295   1              if( PcdAuthState( PICC_AUTHENT1A, KeyBlockAddr, CardKeyABuf, &CardRevBuf[2] ) != MI_OK )// 验证密码
  296   1              {
@@ -382,7 +382,7 @@ line level    source
  354   2                              break;
  355   2              }
  356   1      }
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 7   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 7   
 
  357          
  358          void display_money( INT32U CardMoney )
@@ -446,7 +446,7 @@ line level    source
  416   2              }
  417   1              *pDisplayChar ++ = '\0';
  418   1      
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 8   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 8   
 
  419   1              lcdMsg(DisplayBuf, 2, 3 );
  420   1      }
@@ -510,7 +510,7 @@ line level    source
  478   2                              break;
  479   2                      case 0x0003: //查询卡号  ->     fe 03 04 c1 c0 er 00 00 00 00 ck, <- fc 03 04 c1 c0 er sn3 sn2 sn1 sn0 ck
  480   2                              req_card_sn( psUartDataRevSend );
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 9   
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 9   
 
  481   2                              break;
  482   2      
@@ -574,7 +574,7 @@ line level    source
  537   1              switch( psUartDataRevSend->UartCmd )
  538   1              {       
  539   2                      case 0x0141:  //计算机控制
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 10  
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 10  
 
  540   2                              ctrl_by_pc( psUartDataRevSend );
  541   2                              Result = TRUE;
@@ -638,7 +638,7 @@ line level    source
              -节        
  598   2                      {
  599   3                              display_no_id();
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 11  
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 11  
 
  600   3                              return;
  601   3                      }       
@@ -702,7 +702,7 @@ line level    source
  659   2                              if( PcdWrite( 4, CardWriteBuf ) != MI_OK )// 写数据
  660   2                              {
  661   3                                      display_error();
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 12  
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 12  
 
  662   3                                      return; 
  663   3                              }
@@ -766,7 +766,7 @@ line level    source
  716   2              }
  717   1              PcdHalt();      
  718   1      }
-C51 COMPILER V7.50   CTRL                                                                  06/10/2020 23:01:28 PAGE 13  
+C51 COMPILER V7.50   CTRL                                                                  06/12/2020 10:11:06 PAGE 13  
 
  719          
  720          void ctrl_process( void )

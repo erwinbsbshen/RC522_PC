@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   MAIN                                                                  06/10/2020 23:01:28 PAGE 1   
+C51 COMPILER V7.50   MAIN                                                                  06/12/2020 10:11:06 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\main.obj
-COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\main.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\main.lst) OBJECT
-                    -(.\main.obj)
+COMPILER INVOKED BY: D:\keli\C51\BIN\C51.EXE ..\code\main.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\main.lst) OBJECT(.\m
+                    -ain.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52          
   53          void init_par( void )
   54          {
-C51 COMPILER V7.50   MAIN                                                                  06/10/2020 23:01:28 PAGE 2   
+C51 COMPILER V7.50   MAIN                                                                  06/12/2020 10:11:06 PAGE 2   
 
   55   1          BEEP_OFF;
   56   1          LED_OFF;
@@ -107,8 +107,8 @@ line level    source
   95   2          }
   96   1      
   97   1          lcdInitinal();
-  98   1          lcdMsg("123",1,0);
-  99   1              lcdMsg("嵌入式",2,0);
+  98   1          lcdMsg("程欢",1,0);
+  99   1              lcdMsg("浙江中医药大学",2,0);
  100   1              lcdMsg("XXX",3,0);
  101   1          lcdMsg("www.google.com",4,0);
  102   1          delay_ms(2000);
@@ -126,7 +126,7 @@ line level    source
  114   1          {
  115   2              feed_wdt();
  116   2              ctrl_process();
-C51 COMPILER V7.50   MAIN                                                                  06/10/2020 23:01:28 PAGE 3   
+C51 COMPILER V7.50   MAIN                                                                  06/12/2020 10:11:06 PAGE 3   
 
  117   2          }
  118   1      }
@@ -134,7 +134,7 @@ line level    source
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    268    ----
-   CONSTANT SIZE    =     74    ----
+   CONSTANT SIZE    =     83    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----

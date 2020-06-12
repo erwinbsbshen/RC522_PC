@@ -1,10 +1,10 @@
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 1   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 1   
 
 
 C51 COMPILER V7.50, COMPILATION OF MODULE RC522
 OBJECT MODULE PLACED IN .\rc522.obj
-COMPILER INVOKED BY: D:\uvision2\C51\BIN\C51.EXE ..\code\rc522.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\rc522.lst) OBJE
-                    -CT(.\rc522.obj)
+COMPILER INVOKED BY: D:\keli\C51\BIN\C51.EXE ..\code\rc522.c LARGE BROWSE DEBUG OBJECTEXTEND PRINT(.\rc522.lst) OBJECT(.
+                    -\rc522.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   50   3                      } 
   51   2                      nop();nop();
   52   2                      CLR_SPI_CK;nop();nop();
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 2   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 2   
 
   53   2                      SET_SPI_CK;nop();nop();
   54   2                      SPIData <<= 1;
@@ -126,7 +126,7 @@ line level    source
  112   1          tmp = ReadRawRC(reg);
  113   1          WriteRawRC(reg,tmp | mask);  // set bit mask
  114   1      }
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 3   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 3   
 
  115          
  116          /////////////////////////////////////////////////////////////////////
@@ -190,7 +190,7 @@ line level    source
  174   1          ClearBitMask(ComIrqReg,0x80);
  175   1          WriteRawRC(CommandReg,PCD_IDLE);
  176   1          SetBitMask(FIFOLevelReg,0x80);
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 4   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 4   
 
  177   1          
  178   1          for (i=0; i<InLenByte; i++)
@@ -254,7 +254,7 @@ line level    source
  236   2              
  237   2          }
  238   1         
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 5   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 5   
 
  239   1          SetBitMask(ControlReg,0x80);           // stop timer now
  240   1          WriteRawRC(CommandReg,PCD_IDLE); 
@@ -318,7 +318,7 @@ line level    source
  298   1          ClearBitMask(Status2Reg,0x08);
  299   1          WriteRawRC(BitFramingReg,0x00);
  300   1          ClearBitMask(CollReg,0x80);
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 6   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 6   
 
  301   1       
  302   1          ucComMF522Buf[0] = PICC_ANTICOLL1;
@@ -382,7 +382,7 @@ line level    source
  360   1      }
  361          
  362          /////////////////////////////////////////////////////////////////////
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 7   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 7   
 
  363          //功    能：验证卡片密码
  364          //参数说明: auth_mode[IN]: 密码验证模式
@@ -446,7 +446,7 @@ line level    source
  422          //功    能：写数据到M1卡一块
  423          //参数说明: addr[IN]：块地址
  424          //          pData[IN]：写入的数据，16字节
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 8   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 8   
 
  425          //返    回: 成功返回MI_OK
  426          /////////////////////////////////////////////////////////////////////                  
@@ -510,7 +510,7 @@ line level    source
  484   1              SET_RC522RST;
  485   1          delay_ns(10);
  486   1              CLR_RC522RST;
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 9   
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 9   
 
  487   1          delay_ns(10);
  488   1              SET_RC522RST;
@@ -574,7 +574,7 @@ line level    source
  546   1              ClearBitMask(TxControlReg, 0x03);
  547   1      }
  548          
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 10  
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 10  
 
  549          void init_rc522(void)
  550          {
@@ -638,7 +638,7 @@ line level    source
  608          /////////////////////////////////////////////////////////////////////
  609          //功    能：备份钱包
  610          //参数说明: sourceaddr[IN]：源地址
-C51 COMPILER V7.50   RC522                                                                 06/10/2020 23:01:28 PAGE 11  
+C51 COMPILER V7.50   RC522                                                                 06/12/2020 10:11:06 PAGE 11  
 
  611          //          goaladdr[IN]：目标地址
  612          //返    回: 成功返回MI_OK
