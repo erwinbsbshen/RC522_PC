@@ -95,10 +95,10 @@ void main(void)
     }
 
     lcdInitinal();
-    lcdMsg("浙江中医药大学",1,0);
-	lcdMsg("嵌入式课程",2,0);
+    lcdMsg("王星龙",1,0);
+	lcdMsg("浙江中医药大学",2,0);
 	lcdMsg("XXX",3,0);
-    lcdMsg("www.zcmu.edu.cn",4,0);
+    lcdMsg("www.google.com",4,0);
     delay_ms(2000);
     lcdInitinal();
     delay_ms(2);
