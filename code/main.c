@@ -97,8 +97,8 @@ void main(void)
     lcdInitinal();
     lcdMsg("浙江中医药大学",1,0);
 	lcdMsg("嵌入式课程",2,0);
-	lcdMsg("XXX",3,0);
-    lcdMsg("www.169.com",4,0);
+	lcdMsg("谭欣怡",3,0);
+    lcdMsg("201712203502035",4,0);
     delay_ms(2000);
     lcdInitinal();
     delay_ms(2);
